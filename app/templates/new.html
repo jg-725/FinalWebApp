@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/cities/new" method="POST">
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="fldName">First Name</label>
+            <input id="fldName" type="text" class="form-control" placeholder="First Name" name="fldName">
+        </div>
+        <br>
+        <div class="col">
+            <label for="fldCountry">Last Name</label>
+            <input id="fldCountry" type="text" class="form-control" placeholder="Last Name" name="fldCountry">
+        </div>
+        <br>
+        <div class="col">
+            <label for="fldAbbreviation">Abbreviation</label>
+            <input id="fldAbbreviation" type="text" class="form-control" placeholder="Abbreviation"
+                   name="fldAbbreviation">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="fldCapitalStatus">Movie</label>
+
+            <input id="fldCapitalStatus" type="text" class="form-control" placeholder="Movie"
+                   name="fldCapitalStatus">
+        </div>
+        <br>
+        <div class="col">
+            <label for="fldPopulation">Year Won</label>
+            <input id="fldPopulation" type="text" class="form-control" placeholder="Year Won" name="fldPopulation">
+        </div>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success">Create</button>
+
+</form>
+
+{% endblock %}

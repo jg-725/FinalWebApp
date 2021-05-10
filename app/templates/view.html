@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<br>
+<br>
 <div class="card" class="m-5 p-2">
-    <h5 class="card-title">{{ city.fldName }} - {{ city.fldCountry }}</h5>
 
+    <h5 class="card-title">{{ city.fldName }} - {{ city.fldCountry }}</h5>
+    <br>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Movie: {{ city.fldCapitalStatus }}</li>
         <li class="list-group-item">Year Won: {{ city.fldPopulation }}</li>

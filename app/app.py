@@ -112,6 +112,7 @@ def api_edit(city_id) -> str:
     resp = Response(status=200, mimetype='application/json')
     return resp
 
+
 @app.route('/api/v1/cities', methods=['POST'])
 def api_add() -> str:
 
@@ -126,6 +127,7 @@ def api_add() -> str:
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
+
 
 @app.route('/api/v1/cities/<int:city_id>', methods=['DELETE'])
 def api_delete(city_id) -> str:

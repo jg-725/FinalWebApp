@@ -5,6 +5,7 @@ from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 
+
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 
@@ -16,6 +17,7 @@ app.config['MYSQL_DATABASE_DB'] = 'citiesData'
 mysql.init_app(app)
 
 
+# Start of Current App
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': 'Cities Project'}
@@ -23,6 +25,12 @@ def index():
     cursor.execute('SELECT * FROM tblCitiesImport')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, cities=result)
+
+
+@app.route('/')
+def statistics():
+    return render_template('layout.html')
+
 
 
 @app.route('/view/<int:city_id>', methods=['GET'])
@@ -53,6 +61,7 @@ def form_update_post(city_id):
     mysql.get_db().commit()
     return redirect("/", code=302)
 
+
 @app.route('/cities/new', methods=['GET'])
 def form_insert_get():
     return render_template('new.html', title='New City Form')
@@ -68,6 +77,7 @@ def form_insert_post():
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
+
 
 @app.route('/delete/<int:city_id>', methods=['POST'])
 def form_delete_post(city_id):
